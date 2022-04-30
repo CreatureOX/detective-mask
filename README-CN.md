@@ -1,10 +1,10 @@
 # ![]() Detective Mask
-旨在数据脱敏
+旨在日志结构化数据脱敏
 
 ## 快速开始
 1. 实现`Mask`类
 ```java
-import com.creatureox.Mask;
+import com.github.creatureox.detectivemask.mask.Mask;
 
 public class MobileMask implements Mask {
     @Override
@@ -22,8 +22,17 @@ public class MobileMask implements Mask {
 detective-mask.MobileMask.keywords=phone
 detective-mask.MobileMask.pattern=^1\\d{10}$
 ```
+3. `logback.xml`中添加配置项
 
-3. 运行 `DetectiveMaskStarter#process(String log)` 查看结果
+```xml
+<configuration>
+   <conversionRule conversionWord="msg" converterClass="com.github.creatureox.detectivemask.DetectiveMaskLogConverter" />
+   
+   <appender>...</appender>
+</configuration>
+```
+
+4. 运行应用查看日志
 ```
 输入：{"mobile":"12345678901"}
 输出：{"mobile":"123******01"}

@@ -1,10 +1,10 @@
 # ![]() Detective Mask
-Designed to data desensitization
+Designed to desensitize log structured data
 
 ## Quick Start
 1. implement `Mask`
 ```java
-import com.creatureox.Mask;
+import com.github.creatureox.detectivemask.mask.Mask;
 
 public class MobileMask implements Mask {
     @Override
@@ -23,7 +23,18 @@ detective-mask.MobileMask.keywords=phone
 detective-mask.MobileMask.pattern=^1\\d{10}$
 ```
 
-3. run `DetectiveMaskStarter#process(String log)` to check result
+3. add conversionRule in `logback.xml`
+
+```xml
+
+<configuration>
+   <conversionRule conversionWord="msg" converterClass="com.github.creatureox.detectivemask.DetectiveMaskLogConverter"/>
+
+   <appender>...</appender>
+</configuration>
+```
+
+4. run application to check log
 ```
 input：{"mobile":"12345678901"}
 output：{"mobile":"123******01"}
