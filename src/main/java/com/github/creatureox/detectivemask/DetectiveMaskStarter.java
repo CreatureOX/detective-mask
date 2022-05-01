@@ -21,15 +21,11 @@ public final class DetectiveMaskStarter {
 
     private final static DetectiveMaskStarter INSTANCE = new DetectiveMaskStarter();
 
-    private static final String SCAN_PATH;
+    private static final String SCAN_PATH = findScanPath();
     private final List<Processor> processors;
 
-    static {
-        System.setProperty("logging.level.org.reflections", "OFF");
-        SCAN_PATH = findScanPath();
-    }
-
     private DetectiveMaskStarter() {
+        System.setProperty("logging.level.org.reflections", "OFF");
         List<Mask> maskList = loadMasks();
         this.processors = new ArrayList<>();
         this.processors.add(new JsonProcessor(maskList));
