@@ -1,4 +1,7 @@
 # ![]() Detective Mask
+![GitHub](https://img.shields.io/github/license/creatureox/detective-mask)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/creatureox/detective-mask/CI)
+
 旨在日志结构化数据脱敏
 
 ## 快速开始

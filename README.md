@@ -1,4 +1,7 @@
 # ![]() Detective Mask
+![GitHub](https://img.shields.io/github/license/creatureox/detective-mask)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/creatureox/detective-mask/CI)
+
 Designed to desensitize log structured data
 
 ## Quick Start
